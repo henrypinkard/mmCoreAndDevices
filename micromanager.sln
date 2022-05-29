@@ -436,6 +436,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UniversalSerialHub", "Devic
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NIDAQ", "DeviceAdapters\NIDAQ\NIDAQ.vcxproj", "{51AC9E8C-8BD5-4EFE-8571-6EE74D0BC22B}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lumenera", "DeviceAdapters\Lumenera\Lumenera.vcxproj", "{A52B96CD-B86B-4963-BED4-CA3F5C515327}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -1310,6 +1312,10 @@ Global
 		{51AC9E8C-8BD5-4EFE-8571-6EE74D0BC22B}.Debug|x64.Build.0 = Debug|x64
 		{51AC9E8C-8BD5-4EFE-8571-6EE74D0BC22B}.Release|x64.ActiveCfg = Release|x64
 		{51AC9E8C-8BD5-4EFE-8571-6EE74D0BC22B}.Release|x64.Build.0 = Release|x64
+		{A52B96CD-B86B-4963-BED4-CA3F5C515327}.Debug|x64.ActiveCfg = Debug|x64
+		{A52B96CD-B86B-4963-BED4-CA3F5C515327}.Debug|x64.Build.0 = Debug|x64
+		{A52B96CD-B86B-4963-BED4-CA3F5C515327}.Release|x64.ActiveCfg = Release|x64
+		{A52B96CD-B86B-4963-BED4-CA3F5C515327}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
