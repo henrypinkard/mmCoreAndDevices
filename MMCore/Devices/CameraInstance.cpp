@@ -146,3 +146,102 @@ int CameraInstance::StopExposureSequence() { return GetImpl()->StopExposureSeque
 int CameraInstance::ClearExposureSequence() { return GetImpl()->ClearExposureSequence(); }
 int CameraInstance::AddToExposureSequence(double exposureTime_ms) { return GetImpl()->AddToExposureSequence(exposureTime_ms); }
 int CameraInstance::SendExposureSequence() const { return GetImpl()->SendExposureSequence(); }
+
+bool CameraInstance::IsNewAPIImplemented(){ return GetImpl()->IsNewAPIImplemented();}
+bool CameraInstance::HasTrigger(const char* triggerSelector) { return GetImpl()->HasTrigger(triggerSelector); }
+
+
+
+
+int CameraInstance::SetTriggerMode(const char* triggerSelector, bool triggerMode) {
+   return GetImpl()->SetTriggerMode(triggerSelector, triggerMode); };
+int CameraInstance::SetTriggerSource(const char* triggerSelector, const char* triggerSource) {
+   return GetImpl()->SetTriggerSource(triggerSelector, triggerSource); };
+int CameraInstance::SetTriggerDelay(const char* triggerSelector, int triggerDelay) {
+   return GetImpl()->SetTriggerDelay(triggerSelector, triggerDelay); };
+int CameraInstance::SetTriggerActivation(const char* triggerSelector, const char* triggerActivation) {
+   return GetImpl()->SetTriggerActivation(triggerSelector, triggerActivation); };
+// int CameraInstance::SetTriggerOverlap(const char* triggerSelector, const char* triggerOverlap) {
+//    return GetImpl()->SetTriggerOverlap(triggerSelector, triggerOverlap); };
+
+bool CameraInstance::GetTriggerMode(const char* triggerSelector) const{
+   bool on;
+   GetImpl()->GetTriggerMode(triggerSelector, on);
+   return on;
+};
+std::string CameraInstance::GetTriggerSource(const char* triggerSelector) const {
+   char triggerSource[MM::MaxStrLength];
+   GetImpl()->GetTriggerSource(triggerSelector, triggerSource);
+   return std::string(triggerSource);
+};
+int CameraInstance::GetTriggerDelay(const char* triggerSelector) const {
+   int delay;
+   GetImpl()->GetTriggerDelay(triggerSelector, delay);
+   return delay;
+};
+// std::string CameraInstance::GetTriggerOverlap(const char* triggerSelector) const {
+//    char triggerOverlap[MM::MaxStrLength];
+//    GetImpl()->GetTriggerOverlap(triggerSelector, triggerOverlap);
+//    return std::string(triggerOverlap);
+// };
+std::string CameraInstance::GetTriggerActivation(const char* triggerSelector) const {
+   char triggerActivation[MM::MaxStrLength];
+   GetImpl()->GetTriggerActivation(triggerSelector, triggerActivation);
+   return std::string(triggerActivation);
+}
+
+int CameraInstance::SetBurstFrameCount(unsigned count) {
+   GetImpl()->SetBurstFrameCount(count);
+   return DEVICE_OK;
+}
+
+unsigned CameraInstance::GetBurstFrameCount() const {
+   return GetImpl()->GetBurstFrameCount();
+}
+
+bool CameraInstance::HasExposureMode(const char* exposureMode) {
+   return GetImpl()->HasExposureMode(exposureMode);
+}
+
+int CameraInstance::SetExposureMode(const char* exposureMode) {
+   return GetImpl()->SetExposureMode(exposureMode);
+}
+
+std::string CameraInstance::GetExposureMode() {
+   char expMode[MM::MaxStrLength];
+   GetImpl()->GetExposureMode(expMode);
+   return std::string(expMode);
+};
+
+
+int CameraInstance::SendSoftwareTrigger(const char* triggerSelector) { return GetImpl()->TriggerSoftware(triggerSelector); }
+int CameraInstance::ArmAcquisition(int frameCount) { return GetImpl()->AcquisitionArm(frameCount);}
+int CameraInstance::ArmAcquisition() { return GetImpl()->AcquisitionArm(); }
+int CameraInstance::StartAcquisition() { return GetImpl()->AcquisitionStart(); }
+int CameraInstance::StopAcquisition() { return GetImpl()->AcquisitionStop(); }
+int CameraInstance::AbortAcquisition() { return GetImpl()->AcquisitionAbort(); }
+
+int CameraInstance::GetAcquisitionStatus(const char* statusSelector, bool& status) {
+   return GetImpl()->GetAcquisitionStatus(statusSelector, status); }
+
+int CameraInstance::SetIOLineInverted(const char* lineSelector, bool invert) {
+   return GetImpl()->GetAcquisitionStatus(lineSelector, invert);
+}
+
+int CameraInstance::SetLineAsOutput(const char* lineSelector, bool output) {
+   return GetImpl()->SetLineAsOutput(lineSelector, output);
+}
+
+int CameraInstance::SetOutputLineSource(const char* lineSelector, const char* source) {
+   return GetImpl()->SetOutputLineSource(lineSelector, source);
+}
+
+int CameraInstance::GetLineStatus(const char* lineSelector, bool& status) {
+   return GetImpl()->GetLineStatus(lineSelector, status);
+}
+
+double CameraInstance::GetRollingShutterLineOffset() { return GetImpl()->GetRollingShutterLineOffset(); }
+int CameraInstance::SetRollingShutterLineOffset(double offset_us) { return GetImpl()->SetRollingShutterLineOffset(offset_us); }
+unsigned CameraInstance::GetRollingShutterActiveLines() const { return GetImpl()->GetRollingShutterActiveLines(); }
+unsigned CameraInstance::SetRollingShutterActiveLines(unsigned numLines) { return GetImpl()->SetRollingShutterActiveLines(numLines); }
+

@@ -69,6 +69,9 @@
       <SubSystem>Windows</SubSystem>
     </Link>
     <PostBuildEvent />
+    <PostBuildEvent>
+      <Command>copy /Y "$(TargetDir)$(TargetName).dll" "C:\Program Files\Micro-Manager-2.0\$(TargetName).dll"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Midl>

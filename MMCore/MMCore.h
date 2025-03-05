@@ -432,6 +432,56 @@ public:
    long getExposureSequenceMaxLength(const char* cameraLabel) throw (CMMError);
    void loadExposureSequence(const char* cameraLabel,
          std::vector<double> exposureSequence_ms) throw (CMMError);
+
+   ///@}
+
+   /** \name New camera API. */
+   ///@{
+   bool isNewAPIImplemented(const char* cameraLabel);
+
+   bool hasTrigger(const char* cameraLabel, const char* triggerSelector);
+
+   int setTriggerMode(const char* cameraLabel, const char* triggerSelector, bool on);
+   int setTriggerSource(const char* cameraLabel, const char* triggerSelector, const char* triggerSource);
+   int setTriggerDelay(const char* cameraLabel, const char* triggerSelector, double triggerDelay);
+   int setTriggerActivation(const char* cameraLabel, const char* triggerSelector, const char* triggerActivation);
+
+   bool getTriggerMode(const char* cameraLabel, const char* triggerSelector);
+   std::string getTriggerSource(const char* cameraLabel, const char* triggerSelector);
+   double getTriggerDelay(const char* cameraLabel, const char* triggerSelector);
+   std::string getTriggerActivation(const char* cameraLabel, const char* triggerSelector);
+
+   std::string getExposureMode(const char* cameraLabel);
+   int setExposureMode(const char* cameraLabel, const char* exposureMode);
+   bool hasExposureMode(const char* cameraLabel, const char* exposureMode);
+
+   // TODO throw exceptions when camera label is wrong
+   int setBurstFrameCount(const char* cameraLabel, unsigned count);
+   unsigned getBurstFrameCount(const char* cameraLabel) const;
+
+
+   void sendSoftwareTrigger(const char* cameraLabel, const char* triggerSelector);
+   int armAcquisition(const char* cameraLabel, int frameCount);
+   int armAcquisition(const char* cameraLabel);
+
+   int startAcquisition(const char* cameraLabel);
+   int stopAcquisition(const char* cameraLabel);
+   int abortAcquisition(const char* cameraLabel);
+
+   bool getAcquisitionStatus(const char* cameraLabel, const char* statusSelector) throw (CMMError);
+
+   int setIOLineInverted(const char* cameraLabel, const char* lineSelector, bool invert);
+   int setLineAsOutput(const char* cameraLabel, const char* lineSelector, bool output);
+   int setOutputLineSource(const char* cameraLabel, const char* lineSelector, const char* source);
+   bool getLineStatus(const char* cameraLabel, const char* lineSelector)  throw (CMMError);
+
+
+   double getRollingShutterLineOffset(const char* cameraLabel);
+   int setRollingShutterLineOffset(const char* cameraLabel, double offset_us);
+   unsigned getRollingShutterActiveLines(const char* cameraLabel);
+   unsigned setRollingShutterActiveLines(const char* cameraLabel, unsigned numLines);
+
+
    ///@}
 
    /** \name Autofocus control. */
